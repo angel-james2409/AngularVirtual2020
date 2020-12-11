@@ -1,0 +1,40 @@
+<p>emp works!</p>
+<div *ngFor="let emp of empDetails">
+    {{emp.eid}}
+    {{emp.ename}}
+</div>
+<br>
+hi{{username}}welcome to hexaware
+<br>
+From service:{{value}}
+<br><br>
+<!--structural directives-->
+<div [ngStyle]="{'background-color':'green'}">display the user here</div>
+<ul [ngSwitch]="ename">
+<li ngSwitchCase="'angel'"> hello angel !!!!</li>
+<li ngSwitchCase="'devi'"> hello dev !!!!</li>
+<li ngSwitchCase="karthi"> hello karthi !!!!</li>
+<li ngSwitchCase="'jana'"> hello jana !!!!</li>
+</ul>
+<!--pipes in angular-->
+UpperCase:{{ename|uppercase}}<br>
+LowerCase:{{ename|lowercase}}<br>
+Currency Pipe:{{12345:678|Currency:'USD'}}<br>
+Decimal Pipe:{{555454.8455|number:'5.4-4'}}<br>
+Date of Birth:{{dob|date:'long'}}
+
+
+<br><br>
+<form [formGroup]="empForm" (ngSubmit)="empFun()">
+    Employee Id:<input type="text" formControlName="eid">
+    <div style="color:red" *ngIf="empForm.get('eid').invalid && empForm.get('eid').touched">
+    Employee Id is must of 4 characters
+    </div>
+    <br>
+    Employee Mobile:<input type="text" formControlName="emobil">
+    <div style="color:red" *ngIf="empForm.get('emobil').invalid && empForm.get('emobil').touched">
+    Employee mobile number  is must of 10 characters
+    </div>
+<br>
+<input type="submit" value="submit">
+</form>

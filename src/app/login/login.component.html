@@ -1,0 +1,19 @@
+<p>Login form</p>
+<form #loginForm="ngForm" (ngSubmit)="loginFun(loginForm)">
+Username:<input type="text" name="user" id="user" ngModel #user="ngModel" required>
+<div *ngIf="user.invalid &&(user.dirty || user.touched)">
+<div style="color:red" *ngIf= " user.errors.required">User name is mandate</div>
+</div>
+<br>
+Password:<input type="password" name="pass" id="pass" ngModel #pass="ngModel"><br>
+<input type="submit" value="submit">
+</form>
+<br>
+{{loginForm.value|json}}
+
+<br>
+Touched: {{user.touched}}     untouched: {{user.untouched}}<br>
+dirty: {{user.dirty}}         pristine: {{user.pristine}}<br>
+valid:  {{user.valid}}        invalid: {{user.invalid}}
+<br><br>
+<a routerLink="emp">click here to go to employee</a>
